@@ -15,6 +15,10 @@ class DatabaseSeeder extends Seeder
         Model::unguard();
 
         $this->call(actosSeeder::class);
+        $this->call(certificacionesSeeder::class);
+        $this->call(constanciasSeeder::class);
+        $this->call(ordenesSeeder::class);
+        $this->call(usersSeeder::class);
 
         Model::reguard();
     }

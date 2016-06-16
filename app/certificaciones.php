@@ -13,12 +13,12 @@ class certificaciones extends Model
      *
      * @var array
      */
-    protected $fillable = ['folio','folio_orden', 'id_acta','status', 'acto'];
+    protected $fillable = ['folio','folioOrden', 'idActa','status', 'acto'];
 
     public function acto(){
-        return $this->belongsTo('App\actos', 'id');
+        return $this->belongsTo('App\actos', 'acto');
     }
     public function orden(){
-        return $this->belongsTo('App\ordenPago', 'folio');
+        return $this->belongsTo('App\ordenPago', 'folioOrden');
     }
 }

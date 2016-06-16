@@ -39,6 +39,10 @@
         <div class="container">
             <div class="content">
                 <div class="title">Laravel 5</div>
+                @foreach( $constancias as $certificacion)
+                    <strong>{{$certificacion->folio}} </strong>de tipo  <strong>{{$certificacion->acto['description']}}</strong> pertenece a la orden con folio <strong>{{$certificacion->orden}}</strong>
+                    <br>
+                @endforeach
             </div>
         </div>
     </body>

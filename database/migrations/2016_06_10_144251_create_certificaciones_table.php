@@ -15,9 +15,8 @@ class CreateCertificacionesTable extends Migration
         Schema::create('certificaciones', function (Blueprint $table) {
             $table->increments('id');
             $table->string('folio');
-            $table->string('folio_orden');
-            $table->string('id_acta');
-            $table->enum('status', ['Pagado','No pagado']);
+            $table->string('folioOrden');
+            $table->string('idActa');
             $table->integer('acto');
             $table->timestamps();
         });

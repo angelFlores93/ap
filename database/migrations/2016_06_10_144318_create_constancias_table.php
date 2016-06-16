@@ -15,8 +15,7 @@ class CreateConstanciasTable extends Migration
         Schema::create('constancias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('folio');
-            $table->string('folio_orden');
-            $table->enum('status', ['Pagado','No pagado']);
+            $table->string('folioOrden');
             $table->integer('acto');
             $table->timestamps();
         });

@@ -18,7 +18,7 @@ class actos extends Model
     public function certificacion(){
         return $this->hasMany('App\certificaciones', 'acto', 'id');
     }
-    public function constancias(){
+    public function constancia(){
         return $this->hasMany('App\constancias', 'acto', 'id');
     }
 }

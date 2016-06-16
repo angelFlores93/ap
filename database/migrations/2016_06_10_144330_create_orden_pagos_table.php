@@ -12,12 +12,13 @@ class CreateOrdenPagosTable extends Migration
      */
     public function up()
     {
-        Schema::create('orden_pagos', function (Blueprint $table) {
+        Schema::create('ordenPagos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('folio');
             $table->enum('tipo',['Certificación', 'Constancia', 'Ambos']);
             $table->enum('status', ['Pagado', 'No Pagado']);
-            $table->integer('num_tramites');
+            $table->integer('numTramites');
+            $table->integer('resueltoPor');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateOrdenPagosTable extends Migration
      */
     public function down()
     {
-        Schema::drop('orden_pagos');
+        Schema::drop('ordenPagos');
     }
 }

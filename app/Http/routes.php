@@ -11,6 +11,12 @@
 |
 */
 
+
 Route::get('/', function () {
-    return view('welcome');
+    $actos = \App\actos::all();
+    $users = \App\user::all();
+    $ordenes = \App\ordenPago::all();
+    $certificaciones =  \App\certificaciones::all();
+    $constancias = \App\constancias::all();
+    return View::make('welcome')->with('constancias', $constancias);
 });
