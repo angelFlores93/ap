@@ -1,0 +1,93 @@
+.top{
+    padding-top: 60px;
+}
+.trans{
+    background-color: rgba(0,0,0,0.5);
+}
+.container-fluid{
+    padding-bottom: 60px;
+    border-radius: 5px;
+}
+.btn{
+    border: none;
+}
+.fancy{
+    background-image: url("../img/bg.jpg");
+    background-size: 100%;
+    color:white;
+}
+.pink{
+    background-color: #D10066;
+}
+.pink:hover{
+    background-color: #ff007b;
+    color: white;
+}
+.orange{
+    background-color: #FE5013;
+    color: white;
+}
+.orange:hover{
+    background-color: #fe6a34;
+    color: white;
+}
+.yellow{
+    background-color: #FFCC01;
+}
+.yellow:hover{
+    background-color: #ffd633;
+    color: white;
+}
+.blue{
+    background-color: #0159BB;
+}
+.blue:hover{
+    background-color: #016be4;
+    color: white;
+}
+.green{
+    background-color: #36c93d;
+}
+.green:hover{
+    background-color: #2FC635;
+    color: white;
+}
+.purple{
+    background-color: #923387;
+    color: white;
+}
+.purple:hover{
+    background-color: #aa3c9d;
+    color: white;
+}
+hr{
+    border-color: white;
+
+}
+hr.dashed{
+    border-color: white;
+    border-style: dashed;
+
+}
+a{
+    color:white;
+}
+.cart:hover{
+    color: #2FC635;
+}
+a:visited{
+    color: white;
+}
+i {
+    width:100px;
+    vertical-align:middle;
+}
+.badge{
+    width: auto;
+    height: auto;
+    position:absolute;
+    padding:5px;
+}
+tr>td{
+    text-align: left;
+}

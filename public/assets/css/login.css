@@ -1,0 +1,31 @@
+
+*{margin:0; padding:0}
+body{background:#f2f2f2; font-family: 'Source Sans Pro', sans-serif;background:url(../img/fondoLogin.jpg) no-repeat center center;background-size:cover; overflow: hidden; height: 1024px;}
+.headerIS{height:44px; background:#32292A;}
+.bg-login{width:400px; margin:auto; background:#221E1F; margin-top:25px; opacity: 0.9; filter: alpha(opacity=90);}
+.headerIS h4{height:14px; line-height:44px; color:#fff; text-align:center}
+.login{padding:0 20px; }
+.login span.un{width:10%; text-align:center; color:#858685; border-radius:3px 0 0 3px}
+.text{background:#12192C; width:90%; border-radius:0 3px 3px 0; border:none; outline:none; color:#000000; font-family: 'Source Sans Pro', sans-serif}
+.text,.login span.un{display:inline-block; vertical-align:top; height:40px; line-height:40px; background:#ffffff}
+.btn:hover{background:#539347;color:#ffffff}
+.btn{height:35px; border:none; background:#4D8942; outline:none; font-family: 'Source Sans Pro', sans-serif; font-size:20px; font-weight:bold; color:#eee; border-bottom:solid 3px #48813E; border-radius:3px;}
+ul li{height:40px; margin:15px 0; list-style:none}
+.letras:hover{color:#4D8942}
+.span{display:table; width:100%; font-size:14px;}
+.ch{display:inline-block; width:48%; color:#CCC}
+.ch a{color:#CCC; text-decoration:none}
+.ch:nth-child(2){text-align:right}
+.sign{width:90%; padding:0 5%; height:50px; display:table}
+.sign div{display:inline-block; width:50%; line-height:50px; color:#ccc; font-size:14px}
+.up{text-align:right}
+@media(max-width:480px){ .form{width:100%}}
+@media screen and (min-width: 300px) and (max-width: 760px){
+    .bg-login, .bg-login2 { width: 100%; }
+}
+.logo{
+    position:relative;
+    height: 150px;
+    width: 240px;
+}
+

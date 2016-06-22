@@ -12,11 +12,21 @@
 */
 
 
-Route::get('/', function () {
-    $actos = \App\actos::all();
-    $users = \App\user::all();
-    $ordenes = \App\ordenPago::all();
-    $certificaciones =  \App\certificaciones::all();
-    $constancias = \App\constancias::all();
-    return View::make('welcome')->with('constancias', $constancias);
-});
+Route::get('/', [
+    'uses' => 'indexController@index',
+    'as' => '/inicio']
+);
+
+Route::get('/certificaciones', [
+    'uses' => 'certificacionesController@index',
+    'as' => '/certificaciones']
+);
+Route::get('/certificaciones/{id}', [
+        'uses' => 'certificacionesController@preview',
+        'as' => '/certificaciones/vistaPrevia']
+);
+
+Route::get('/carrito', [
+        'uses' => 'shoppingController@index',
+        'as' => '/carrito']
+);
