@@ -16,10 +16,11 @@
                 <div class="container-fluid text-center top trans">
                     <h1>Busca tu acta</h1>
                     @include('messages.messages')
-                    <!-- FORM LARAVEL START HERE -->
+
                     <div class="row">
+                        {!! Form::open(['route' => '/certificaciones/lista', 'method'=>'GET']) !!}
                         <div class="form-group">
-                            <div class="col-md-2" style="padding-top: 15px;">
+                            <div class="col-md-2" >
                                 <select class="form-control" id="acto" name="acto">
                                     <option value="">Acto</option>
                                     @if( isset($actos))
@@ -64,27 +65,41 @@
                                 </button>
                             </div>
                         </div>
+                        {!! Form::close() !!}
                     </div>
 
 
-                    <!-- LARAVEL FORM CLOSE TAG -->
+
                     <hr>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                             <tr>
-                                <th>Nombre</th>
-                                <th>Primer apellido</th>
-                                <th>Segundo apellido</th>
+                                <th>Folio</th>
+                                <th>Nombre del registrado</th>
+                                <th>Fecha de registro</th>
+                                <th>Nombre del padre</th>
+                                <th>Nombre de la madre</th>
                                 <th>Consultar</th>
                             </tr>
                             </thead>
                             <tbody>
+                            @if (isset($results))
+                                @foreach($results as $res)
+                                    <tr>
+                                        <td>{{$res->id_acta}}</td>
+                                        <td>{{$res->nombre1.' '.$res->primer_ap1.' '.$res->segundo_ap1}}</td>
+                                        <td>{{$res->fecha_reg}}</td>
+                                        <td>{{$res->nombre_padre.' '.$res->primer_ap_padre.' '.$res->segundo_ap_padre}}</td>
+                                        <td>{{$res->nombre_madre.' '.$res->primer_ap_madre.' '.$res->segundo_ap_madre}}</td>
+
+                                        <td style="width: 5px;"><a href="{{route('/certificaciones/consultar/vistaPrevia', $res->id_acta)}}"><button class="btn btn-xs pink tooltips" data-placement="top" data-original-title="Consultar"><i class="fa fa-eye"></i></button></a></td>
+                                    </tr>
+                                @endforeach
+                            @endif
                             <tr>
-                                <td>Irena</td>
-                                <td>Chavez</td>
-                                <td>Cruz</td>
-                                <td style="width: 5px;"><a href="{{route('/certificaciones/vistaPrevia', 0)}}"><button class="btn btn-xs pink tooltips" data-placement="top" data-original-title="Consultar"><i class="fa fa-eye"></i></button></a></td>
+
+
                             </tr>
 
                             </tbody>

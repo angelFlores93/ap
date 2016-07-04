@@ -8,7 +8,7 @@
                 <img  style="width:50px;height:50px;top:5%" src="{{ asset('assets/img/logo_header02.png') }}">
             </div>
             <div class ="col-md-4">
-                <h4 style="color: white; padding-top: 5px" >Servicio de solitud de trámites del Registro Civil</h4>
+                <h4 style="color: white; padding-top: 5px" >Servicio de solicitud de trámites del Registro Civil</h4>
             </div>
             <div class ="col-md-4" align ="right">
                 <div class="row">

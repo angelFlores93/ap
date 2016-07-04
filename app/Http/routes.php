@@ -21,11 +21,14 @@ Route::get('/certificaciones', [
     'uses' => 'certificacionesController@index',
     'as' => '/certificaciones']
 );
-Route::get('/certificaciones/{id}', [
+Route::get('/certificaciones/consultar/{id}', [
         'uses' => 'certificacionesController@preview',
-        'as' => '/certificaciones/vistaPrevia']
+        'as' => '/certificaciones/consultar/vistaPrevia']
 );
-
+Route::get('/certificaciones/lista', [
+    'uses' => 'certificacionesController@seek',
+    'as' => '/certificaciones/lista'
+]);
 Route::get('/carrito', [
         'uses' => 'shoppingController@index',
         'as' => '/carrito']

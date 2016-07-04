@@ -78,7 +78,7 @@ return [
         'sqlsrv' => [
             'driver'   => 'sqlsrv',
             'host'     => env('DB_HOST', '172.133.0.60'),
-            'database' => env('DB_DATABASE', 'RC_ap'),
+            'database' => env('DB_DATABASE', 'RC'),
             'username' => env('DB_USERNAME', 'sa'),
             'password' => env('DB_PASSWORD', 'Olicos90'),
             'charset'  => 'utf8',
