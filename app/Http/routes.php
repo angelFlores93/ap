@@ -21,7 +21,7 @@ Route::get('/certificaciones', [
     'uses' => 'certificacionesController@index',
     'as' => '/certificaciones']
 );
-Route::get('/certificaciones/consultar/{id}', [
+Route::get('/certificaciones/consultar/{id}&{tipo}', [
         'uses' => 'certificacionesController@preview',
         'as' => '/certificaciones/consultar/vistaPrevia']
 );

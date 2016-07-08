@@ -27,8 +27,7 @@ class certificacionRequest extends Request
             'acto'=>'required|exists:actos,id',
             'name'=>'required',
             'flastname'=>'required',
-            'mlastname'=>'required',
-            'datepicker'=>'required'
+            'mlastname'=>'required'
         ];
     }
 }

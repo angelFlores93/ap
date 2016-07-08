@@ -1,8 +1,8 @@
 .top{
-    padding-top: 60px;
+    padding-top: 30px;
 }
 .trans{
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.7);
 }
 .container-fluid{
     padding-bottom: 60px;
@@ -12,7 +12,7 @@
     border: none;
 }
 .fancy{
-    background-image: url("../img/bg.jpg");
+    background-color:white;
     background-size: 100%;
     color:white;
 }
@@ -65,11 +65,19 @@ hr{
 
 }
 hr.dashed{
-    border-color: white;
-    border-style: dashed;
-
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
 }
+hr.dashed:after{
+    content: '';
+    display: block;
+    margin-top: 2px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
 a{
+
     color:white;
 }
 .cart:hover{
@@ -90,4 +98,8 @@ i {
 }
 tr>td{
     text-align: left;
+}
+.strong-black{
+    color: black;
+    font-weight: bold;
 }
