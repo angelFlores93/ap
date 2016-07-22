@@ -19,7 +19,7 @@
                     <td>{{$res->nombre_padre.' '.$res->primer_ap_padre.' '.$res->segundo_ap_padre}}</td>
                     <td>{{$res->nombre_madre.' '.$res->primer_ap_madre.' '.$res->segundo_ap_madre}}</td>
                     <td>{{$res->fecha_nac}}</td>
-                    <td style="width: 5px;"><a href="{{route('/certificaciones/consultar/vistaPrevia', [$res->id_acta, $tipo])}}"><button class="btn btn-xs pink tooltips" data-placement="top" data-original-title="Consultar"><i class="fa fa-eye"></i></button></a></td>
+                    <td style="width: 5px;"><a href="{{route('/certificaciones/consultar/vistaPrevia', [$res->id_acta, $tipo])}}"><button class="btn btn-xs pink tooltips" data-placement="top" data-original-title="Consultar" onclick="blurEvent()"><i class="fa fa-eye"></i></button></a></td>
                 </tr>
             @endforeach
         @endif
