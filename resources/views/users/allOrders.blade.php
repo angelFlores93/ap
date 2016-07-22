@@ -52,7 +52,7 @@
                                     <td>{{$order->tipo}}</td>
                                     <td>{{$order->status}}</td>
                                     <td>{{$order->numTramites}}</td>
-                                    <td><a data-toggle="modal" data-target="#{{$order->folio}}"><button type="button" class="btn btn-xs purple" ><i class="fa fa-info"></i> </button></a></td>
+                                    <td><a data-toggle="modal" data-target="#{{$order->folio}}"><button class="btn btn-xs purple" ><i class="fa fa-info"></i> </button></a></td>
                                     {!! Form::open(['action'=>['usersController@resolve'],'role'=>'form'] )  !!}
                                     @if ($order->status == 'No Pagado')
                                         <td style="width: 5px;"><a href="#"><button class="btn btn-xs green tooltips" data-placement="top" data-original-title="Resolver"><i class="fa fa-check"></i></button></a></td>
@@ -77,10 +77,28 @@
                                     <div class="modal-content">
                                         <div class="modal-header">
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                            <h4 class="modal-title" id="myModalLabel">Orden con folio {{$ord->folio}}</h4>
+                                            <h4 class="modal-title" id="myModalLabel">Resumen de la Orden</h4>
                                         </div>
-                                        <div class="modal-body">
-                                            ...
+                                        <div class="modal-body strong-black">
+
+                                            @if ($ord->tipo == 'Constancia')
+                                                Se solicita una constancia de inexistencia de: {{$acto}}<br>
+                                            @else
+                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta: {{$ord->certificacion[0]->idActa}}
+                                            @endif
+                                            <hr class ="dashed">
+                                            Folio: {{$ord->folio}}<br>
+                                            Tipo de trámite: {{$ord->tipo}}<br>
+                                            Estado: {{$ord->status}}<br>
+                                            Número de trámites: {{$ord->numTramites}}<br>
+                                            @if ($ord->resueltoPor != 1)
+                                                Resuelto por: {{$ord->user->name}} {{$ord->user->lastname}}<br>
+                                                Fecha de resolución: {{$ord->updated_at}}<br>
+                                            @else
+                                                No ha sido resuleto<br>
+                                                Fecha de petición: {{$ord->created_at}}<br>
+                                            @endif
+
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -96,4 +114,5 @@
         </section>
     </section>
 </body>
+
 

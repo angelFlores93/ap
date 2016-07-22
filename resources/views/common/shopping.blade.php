@@ -9,7 +9,7 @@
                     <h1>Resumen de órdenes solicitadas</h1>
                     <div class="row">
                         <div class="col-md-3" >
-                            <h4>Número de órdenes: 2</h4>
+                            <h4>Folio de orden: 2</h4>
                         </div>
                         <div class="col-md-3" >
                             <h4> Total: $200</h4>

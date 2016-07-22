@@ -33,6 +33,9 @@ Route::get('/carrito', [
         'uses' => 'shoppingController@index',
         'as' => '/carrito']
 );
+Route::post('/carrito/añade','shoppingController@add',array('before' => 'csrf', function() {
+
+}));
 Route::get('/auth_RC_ap', [
     'uses' => 'usersController@index',
     'as' => '/auth'
