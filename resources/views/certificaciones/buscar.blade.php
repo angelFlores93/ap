@@ -8,6 +8,12 @@
 
         });
     });
+    $body = $("body");
+
+    $(document).on({
+        ajaxStart: function() { $body.addClass("loading");    },
+        ajaxStop: function() { $body.removeClass("loading"); }
+    });
 </script>
     <section id="container">
         @include('partials.header')
@@ -61,7 +67,7 @@
                             </div>
                             <div class="form-group">
                                 <div class="col-md-2">
-                                    <button type="submit" class="btn pink" >
+                                    <button type="submit" class="btn pink" id="buscar" >
                                         <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                                         Buscar
                                     </button>
@@ -70,7 +76,6 @@
                         {!! Form::close() !!}
                         </div>
                     </div>
-
 
 
                     <hr>
@@ -113,6 +118,7 @@
             </section>
         </section>
     </section>
+<div class="modal"><!-- Place at bottom of page --></div>
 <script type="text/javascript">
     $(document).ready(function() {
 
