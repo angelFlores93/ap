@@ -14,9 +14,9 @@
     <script type="text/javascript" src="{{asset('assets/docs/js/jquery-2.2.0.min.js')}} "></script>
     <!-- BOOTSTRAP -->
     <link rel="stylesheet" href=" {{ asset('assets/css/bootstrap.css') }}">
-
     <script type="text/javascript" src="{{ asset('assets/docs/js/bootstrap-3.3.2.min.js') }}"></script>
-
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href=" {{ asset('assets/font-awesome/css/font-awesome.css') }}">
     <!-- GLITTER -->
@@ -28,6 +28,7 @@
     <!-- STYLES -->
     <link rel="stylesheet" href=" {{ asset('assets/css/style.css') }}">
     <link rel="stylesheet" href=" {{ asset('assets/css/style-responsive.css') }}">
+
 
     <!-- MULTISELECT -->
     <script type="text/javascript" src="{{ asset('assets/dist/js/bootstrap-multiselect.js') }}"></script>
@@ -53,4 +54,5 @@
     <script type="text/javascript" src="{{ asset('assets/js/moment/es.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/bootstrap-datepicker.min.js')}}"></script>
     <script type="text/javascript" src="{{asset('assets/js/jquery.table-sort.js')}}"></script>
+
 </head>

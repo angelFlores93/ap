@@ -42,7 +42,7 @@
                     <br><br>
                     <!--div class="row" align ="center">
                         <!--div class="col-md-2" align ="center"-->
-                            <a  href ="{{route('/certificaciones/añadir')}}" class ="btn pink">Añadir al carrito</a>
+                            <a  href ="#" class ="btn pink">Añadir al carrito</a>
                         <!--/div-->
                     </div>
                 </div>

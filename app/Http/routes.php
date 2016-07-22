@@ -33,3 +33,17 @@ Route::get('/carrito', [
         'uses' => 'shoppingController@index',
         'as' => '/carrito']
 );
+Route::get('/auth_RC_ap', [
+    'uses' => 'usersController@index',
+    'as' => '/auth'
+]);
+Route::get('/auth_RC_ap/{user}',[
+    'uses' => 'usersController@listOrders',
+    'as' => '/auth/list'
+]);
+Route::post('/auth_RC_ap/resolve','usersController@resolve',array('before' => 'csrf', function() {
+
+}));
+Route::post('/auth_RC_ap/toggle','usersController@toggle',array('before' => 'csrf', function() {
+
+}));
