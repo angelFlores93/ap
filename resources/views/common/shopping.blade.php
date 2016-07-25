@@ -7,25 +7,27 @@
             <section class="wrapper site-min-height top">
                 <div class="container-fluid text-center top trans">
                     <h1>Resumen de órdenes solicitadas</h1>
+                    @include('messages.messages')
                     <div class="row">
                         <div class="col-md-3" >
-                            <h4>Folio de orden: 2</h4>
+                            <h4>Folio de orden: OP{{$order_id}}</h4>
                         </div>
                         <div class="col-md-3" >
-                            <h4> Total: $200</h4>
+                            <h4> Total: {{$total}}</h4>
                         </div>
                         <div class="col-md-3" >
                             <!-- FORM REQUEST TO CLOSE -->
                             <a class="btn blue" href ="#">Imprimir órden de pago</a>
                         </div>
                         <div class="col-md-3" >
-                            <a class="btn blue" href ="{{route('/inicio')}}">Solicitar más trámites</a>
+                            <a class="btn blue" href ="{{route('/certificaciones/mas', [$order_id, count($array)])}}">Solicitar más certificaciones</a>
                         </div>
                     </div>
 
                     <h3>Más detalles</h3>
                     <div class="table-responsive">
                         <table class="table">
+
                             <thead>
                                 <tr>
                                     <th>Trámite</th>
@@ -33,18 +35,15 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>Copia certificada de nacimiento</td>
-                                    <td>$100</td>
-                                </tr>
-                                <tr>
-                                    <td>Copia certificada de nacimiento</td>
-                                    <td>$100</td>
-                                </tr>
+                                @foreach($array as $cert)
+                                    <tr>
+                                        <td>Copia certificada</td>
+                                        <td>$130</td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </section>
         </section>

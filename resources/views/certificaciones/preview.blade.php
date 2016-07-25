@@ -42,7 +42,14 @@
                     <br><br>
                     <!--div class="row" align ="center">
                         <!--div class="col-md-2" align ="center"-->
-                            <a  href ="#" class ="btn pink">Añadir al carrito</a>
+                        {!! Form::open(['action'=>['certificacionesController@add'],'role'=>'form'] )  !!}
+                            <input type="hidden" name="cert" value={{$result->ID_ACTA}}>
+                            <input type="hidden" name="acto" value={{$tipo}}>
+                            <input type="hidden" name="order_id" value={{$order_id}}>
+
+
+                            <button class="btn btn-xs pink tooltips" data-placement="top" data-original-title="Añadir">Añadir al carrito</button>
+                        {!! Form::close() !!}
                         <!--/div-->
                     </div>
                 </div>

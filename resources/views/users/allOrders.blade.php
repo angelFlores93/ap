@@ -2,7 +2,7 @@
 
 <body class="fancy">
     <section id="container">
-        @include('partials.header')
+        @include('partials.headerUsers')
         <section id="container">
             <section class="wrapper site-min-height top">
                 <div class="container-fluid text-center top trans">
@@ -68,9 +68,6 @@
                         </tbody>
                     </table>
                     @if (isset($orders))
-                        {!! $orders->setPath('')->appends(Input::query())->render()!!}
-                    @endif
-                    @if (isset($orders))
                         @foreach($orders as $ord)
                             <div class="modal fade" id="{{$ord->folio}}" tabindex="-1" role="dialog">
                                 <div class="modal-dialog" role="document">
@@ -84,7 +81,7 @@
                                             @if ($ord->tipo == 'Constancia')
                                                 Se solicita una constancia de inexistencia de: {{$acto}}<br>
                                             @else
-                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta: {{$ord->certificacion[0]->idActa}}
+                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta: {{$ord->certificacion[0]['idActa']}}
                                             @endif
                                             <hr class ="dashed">
                                             Folio: {{$ord->folio}}<br>
@@ -98,7 +95,6 @@
                                                 No ha sido resuleto<br>
                                                 Fecha de petición: {{$ord->created_at}}<br>
                                             @endif
-
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -108,6 +104,11 @@
                             </div>
                         @endforeach
                     @endif
+                    @if (isset($orders))
+                        {!! $orders->setPath('')->appends(Input::query())->render()!!}
+                    @endif
+
+
                    
                 </div>
             </section>

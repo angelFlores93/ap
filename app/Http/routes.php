@@ -10,7 +10,9 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-
+Route::get('/certificaciones/orden/pdf', function(){
+    return PDF::loadFile()->stream('download.pdf');
+});
 
 Route::get('/', [
     'uses' => 'indexController@index',
@@ -21,7 +23,11 @@ Route::get('/certificaciones', [
     'uses' => 'certificacionesController@index',
     'as' => '/certificaciones']
 );
-Route::get('/certificaciones/consultar/{id}&{tipo}', [
+Route::get('/certificaciones/mas&{order_id}&{count}', [
+        'uses' => 'certificacionesController@getBuscar',
+        'as' => '/certificaciones/mas']
+);
+Route::get('/certificaciones/consultar/{id}&{tipo}&{order_id}&{count}', [
         'uses' => 'certificacionesController@preview',
         'as' => '/certificaciones/consultar/vistaPrevia']
 );
@@ -29,11 +35,11 @@ Route::get('/certificaciones/lista', [
     'uses' => 'certificacionesController@seek',
     'as' => '/certificaciones/lista'
 ]);
-Route::get('/carrito', [
-        'uses' => 'shoppingController@index',
+Route::get('/carrito/{order_id}', [
+        'uses' => 'certificacionesController@getShopping',
         'as' => '/carrito']
 );
-Route::post('/carrito/añade','shoppingController@add',array('before' => 'csrf', function() {
+Route::post('/carrito/añade','certificacionesController@add',array('before' => 'csrf', function() {
 
 }));
 Route::get('/auth_RC_ap', [

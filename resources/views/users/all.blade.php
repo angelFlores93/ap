@@ -1,7 +1,7 @@
 @include('partials.scripts')
 <body class="fancy">
     <section id="container">
-        @include('partials.header')
+        @include('partials.headerUsers')
         <section id="container">
             <section class="wrapper site-min-height top">
                 <div class="container-fluid text-center top trans">

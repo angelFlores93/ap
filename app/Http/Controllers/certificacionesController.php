@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\certificaciones;
+use App\ordenPago;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
@@ -28,12 +30,24 @@ class certificacionesController extends Controller
     public function index()
     {
         $actos = actos::all();
-
+        $order = new ordenPago();
+        $order->save();
+        $order_id = ordenPago::orderBy('created_at', 'desc')->first()->id;
         return view('certificaciones/buscar')->with([
-            'actos' => $actos
+            'actos' => $actos,
+            'order_id' => $order_id
         ]);
     }
-    public function preview($id, $tipo){
+    public function getBuscar($order_id, $count){
+        $actos = actos::all();
+        return view('certificaciones/buscar')->with([
+            'actos' => $actos,
+            'order_id' => $order_id,
+            'count' => $count
+        ]);
+    }
+
+    public function preview($id, $tipo, $order_id, $count){
         $sent = 0;
         switch ($tipo){
             //Nacimiento
@@ -99,7 +113,9 @@ class certificacionesController extends Controller
         return view('certificaciones/preview')->with([
             'result' => $result[0],
             'tipo' => $tipo,
-            'sent' => $sent
+            'sent' => $sent,
+            'order_id' => $order_id,
+            'count' => $count
         ]);
     }
     public function seek(Request $request){
@@ -204,12 +220,50 @@ class certificacionesController extends Controller
                 'actos' => $actos,
                 'results' => $collection->items(),
                 'tipo' => $request->acto,
-                'collection' => $collection
+                'collection' => $collection,
+                'order_id' => $request->order_id,
+                'count' => $request->count
             ]);
 
         }
 
 
+    }
+    public function add(Request $request)
+    {
+        $added = count((certificaciones::where('idActa', $request->cert)->where('folioOrden',$request->order_id)->get()));
+        //modificar la orden
+
+        //agregar la certificación
+
+        if ($added == 0){
+            $certificacion = new certificaciones();
+            $last_id_cert = certificaciones::orderBy('created_at', 'desc')->first()->id;
+            $certificacion->folio = 'RC_' . ($last_id_cert + 1) . '_' . $request->cert . '_' . $request->acto;
+            $certificacion->folioOrden = $request->order_id;
+            $certificacion->idActa = $request->cert;
+            $certificacion->acto = $request->acto;
+            $certificacion->save();
+        }
+        else{
+            Session::flash('error', 'Esta certificación ya se encuentra añadida');
+        }
+        $added = count((certificaciones::where('folioOrden',$request->order_id)->get()));
+        $order = ordenPago::find($request->order_id);
+        $order->folio = 'OP' . $request->order_id;
+        $order->tipo = 'Certificación';
+        $order->status = 'No Pagado';
+        $order->numTramites = $added;
+        $order->resueltoPor = 1;
+        $order->save();
+        // regresar todas las certificaciones con ese folio
+        $all_cert = certificaciones::where('folioOrden', $request->order_id)->get();
+        return view('common/shopping')->with([
+            'order_id' => $request->order_id,
+            'array' => $all_cert,
+            'total' => (count($all_cert)*130),
+            'count' => count($all_cert)
+        ]);
     }
     /*public function sortByDate($sorting_col, $results){
         $col  = $sorting_col;
@@ -228,6 +282,15 @@ class certificacionesController extends Controller
 
         return $sort;
     }*/
+    public function getShopping($order_id){
+        $all_cert = certificaciones::where('folioOrden',$order_id)->get();
+        return view('common/shopping')->with([
+            'order_id' => $order_id,
+            'array' => $all_cert,
+            'total' => (count($all_cert)*130),
+            'count' => count($all_cert)
+        ]);
+    }
     public function adaptQuery($find, $query, $array){
         if (isset($array['name'])) {
             if ($array['name'] != 'null') {

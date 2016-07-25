@@ -73,6 +73,10 @@
                                     </button>
                                 </div>
                             </div>
+                            <input type="hidden" name="order_id" value={{$order_id}}>
+                            @if (isset($count))
+                                <input type="hidden" name="count" value={{$count}}>
+                            @endif
                         {!! Form::close() !!}
                         </div>
                     </div>

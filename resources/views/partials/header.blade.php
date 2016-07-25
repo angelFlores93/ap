@@ -13,8 +13,15 @@
             <div class ="col-md-4" align ="right">
                 <div class="row">
                 <div class="col-md-6" align ="right"><a href="{{route('/inicio')}}" class="cart"><i style="padding-top: 5px;" class="fa fa-home fa-3x" aria-hidden="true"></i><br>Inicio</a></div>
-
-                <div class="col-md-6" align ="left"><a href="{{route('/carrito')}}" class="cart"><i style="padding-top: 5px; padding-right: 13px" class="fa fa-shopping-cart fa-3x" aria-hidden="true"><span  class="badge green">10</span></i><br>Trámites</a></div>
+                @if(isset ($order_id))
+                    <div class="col-md-6" align ="left"><a href="{{route('/carrito', $order_id)}}" class="cart">
+                                @if (!isset($count))
+                                <i style="padding-top: 5px; padding-right: 13px" class="fa fa-shopping-cart fa-3x" aria-hidden="true"><span  class="badge orange">0</span></i>
+                                @else
+                                <i style="padding-top: 5px; padding-right: 13px" class="fa fa-shopping-cart fa-3x" aria-hidden="true"><span  class="badge green">{{$count}}</span></i>
+                                @endif
+                            <br>Trámites</a></div>
+                @endif
                 </div>
             </div>
 
