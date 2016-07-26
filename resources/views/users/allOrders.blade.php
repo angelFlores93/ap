@@ -81,7 +81,7 @@
                                             @if ($ord->tipo == 'Constancia')
                                                 Se solicita una constancia de inexistencia de: {{$acto}}<br>
                                             @else
-                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta: {{$ord->certificacion[0]->idActa}}
+                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta:
                                             @endif
                                             <hr class ="dashed">
                                             Folio: {{$ord->folio}}<br>
@@ -99,12 +99,12 @@
                         @endforeach
                     @endif
 
-
+                    @if (isset($orders))
+                        {!! $orders->setPath('')->appends(Input::query())->render()!!}
+                    @endif
 
                 </div>
-                @if (isset($orders))
-                    {!! $orders->setPath('')->appends(Input::query())->render()!!}
-                @endif
+
             </section>
         </section>
     </section>
