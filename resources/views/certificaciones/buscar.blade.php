@@ -8,13 +8,91 @@
 
         });
     });
-    $body = $("body");
+    $(document).ready(function() {
+        $('#acto').change(function (event){
+            var selected = $(this).val();
+            if (selected == 1){
+                $('#nameLbl').html('Nombre(s) del registrado:');
+                $('#datepickerLbl').html("Fecha de nacimiento:");
+                $('#datepicker').removeAttr('disabled');
+            }
+            if (selected == 2){
+                $('#nameLbl').html('Nombre(s) del conyuge:');
+                //$('#datepickerLbl').html("Fecha de nacimiento");
+                $('#datepicker').attr('disabled', 'true');
+            }
+            if (selected == 3){
+                $('#nameLbl').html('Nombre(s) del difunto:');
+                $('#datepickerLbl').html("Fecha de defunción:");
+                $('#datepicker').removeAttr('disabled');
+            }
+            if (selected == 4){
+                $('#nameLbl').html('Nombre(s) del adoptado:');
+                $('#datepickerLbl').html("Fecha de adopción:");
+                $('#datepicker').removeAttr('disabled');
+            }
+            if (selected == 5){
+                $('#nameLbl').html('Nombre(s) del divorciado:');
+                $('#datepickerLbl').html("Fecha de divorcio:");
+                $('#datepicker').removeAttr('disabled');
+            }
+            if (selected == 6){
+                $('#nameLbl').html('Nombre(s) del sentenciado:');
 
-    $(document).on({
-        ajaxStart: function() { $body.addClass("loading");    },
-        ajaxStop: function() { $body.removeClass("loading"); }
+                $('#datepicker').attr('disabled', 'true');
+            }
+            if (selected == 7){
+                $('#nameLbl').html('Nombre(s) del reconocido:');
+
+                $('#datepicker').attr('disabled', 'true');
+            }
+            if (selected == 8){
+                $('#nameLbl').html('Nombre(s) del registrado:');
+                $('#datepicker').attr('disabled', 'true');
+            }
+            if (selected == 9){
+                $('#nameLbl').html('Nombre(s) del conyuge:');
+                $('#datepickerLbl').html("Fecha de inscripción:");
+                $('#datepicker').removeAttr('disabled');
+            }
+            if (selected == 10){
+                $('#nameLbl').html('Nombre(s) del difunto:');
+                $('#datepickerLbl').html("Fecha de defunción:");
+                $('#datepicker').removeAttr('disabled');
+            }
+
+        });
+        $('#form').bootstrapValidator({
+
+            fields: {
+                name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Campo Obligatorio'
+                        }
+                    }
+                },
+                flastname: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Campo Obligatorio'
+                        }
+                    }
+                },
+                acto: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Campo Obligatorio'
+                        }
+                    }
+                }
+
+            }
+        });
+
     });
 </script>
+
     <section id="container">
         @include('partials.header')
         <section id="container">
@@ -23,62 +101,65 @@
                     <h1>Busca tu acta</h1>
                     @include('messages.messages')
                     <div class="row">
-                        <div id="form">
-                        {!! Form::open(['route' => '/certificaciones/lista', 'method'=>'GET']) !!}
+                        {!! Form::open(['route' => '/certificaciones/lista', 'method'=>'GET', 'id'=>'form']) !!}
 
-                            <div class="form-group">
-                                <div class="col-md-2" >
-                                    <select class="form-control" id="acto" name="acto">
-                                        <option value="">Acto</option>
-                                        @if( isset($actos))
-                                            @foreach($actos as $acto)
-                                                <option value="{{  $acto->id  }}" > {{ $acto->description}}  </option>
-                                            @endforeach
-                                        @endif
-                                    </select>
-                                </div>
+                        <div class="form-group">
+                            <div class="col-md-2" >
+                                <span>Selecciona un acto:</span><br>
+                                <select class="form-control" id="acto" name="acto">
+                                    <option value="">Acto</option>
+                                    @if( isset($actos))
+                                        @foreach($actos as $acto)
+                                            <option value="{{  $acto->id  }}" > {{ $acto->description}}  </option>
+                                        @endforeach
+                                    @endif
+                                </select>
                             </div>
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    {!!Form::text('name' ,null,['class'=>'form-control','id'=>'firstname','placeholder'=>'Nombre(s)'])!!}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    {!!Form::text('flastname' ,null,['class'=>'form-control','id'=>'flastname','placeholder'=>'Apellido Paterno'])!!}
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    {!!Form::text('mlastname' ,null,['class'=>'form-control','id'=>'mlastname','placeholder'=>'Apellido Materno'])!!}
-                                </div>
-                            </div>
-
-                            <div class="form-group" style ="color: black">
-                                <div class="col-md-2">
-                                    <div class="input-group date" >
-                                         <span class="input-group-addon">
-                                            <span class="glyphicon glyphicon-calendar"></span>
-                                         </span>
-                                         {!!Form::text('datepicker' ,null,['class'=>'form-control','id'=>'datepicker','placeholder'=>'Fecha de Nacimiento'])!!}
-                                    </div>
-
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <div class="col-md-2">
-                                    <button type="submit" class="btn pink" id="buscar" >
-                                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                                        Buscar
-                                    </button>
-                                </div>
-                            </div>
-                            <input type="hidden" name="order_id" value={{$order_id}}>
-                            @if (isset($count))
-                                <input type="hidden" name="count" value={{$count}}>
-                            @endif
-                        {!! Form::close() !!}
                         </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <span id="nameLbl">Nombre(s):</span><br>
+                                {!!Form::text('name' ,null,['class'=>'form-control','id'=>'name','placeholder'=>'Nombre(s)'])!!}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <span id="flastnameLbl">Apellido paterno:</span><br>
+                                {!!Form::text('flastname' ,null,['class'=>'form-control','id'=>'flastname','placeholder'=>'Apellido Paterno'])!!}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <span id="mlastnameLbl">Apellido materno:</span><br>
+                                {!!Form::text('mlastname' ,null,['class'=>'form-control','id'=>'mlastname','placeholder'=>'Apellido Materno'])!!}
+                            </div>
+                        </div>
+
+                        <div class="form-group" style ="color: black">
+                            <div class="col-md-2">
+                                <span id="datepickerLbl" style="color:white">Fecha:</span><br>
+                                <div class="input-group date" >
+                                     <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                     </span>
+                                     {!!Form::text('datepicker' ,null,['class'=>'form-control','id'=>'datepicker','placeholder'=>'Fecha'])!!}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <button type="submit" class="btn pink" id="buscar" >
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
+                        <input type="hidden" name="order_id" value={{$order_id}}>
+                        @if (isset($count))
+                            <input type="hidden" name="count" value={{$count}}>
+                        @endif
+                        {!! Form::close() !!}
                     </div>
 
 
@@ -122,56 +203,6 @@
             </section>
         </section>
     </section>
-<div class="modal"><!-- Place at bottom of page --></div>
-<script type="text/javascript">
-    $(document).ready(function() {
-
-        $('#asdf').bootstrapValidator({
-            message: 'Los valores no son válidos',
-            feedbackIcons: {
-                invalid: 'glyphicon glyphicon-remove',
-                validating: 'glyphicon glyphicon-refresh'
-            },
-            fields: {
-                name: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Campo Obligatorio'
-                        }
-                    }
-                },
-                flastname: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Campo Obligatorio'
-                        }
-                    }
-                },
-                mlastname: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Campo Obligatorio'
-                        }
-                    }
-                },
-                acto: {
-                    validators: {
-                        notEmpty: {
-                            message: 'Campo Obligatorio'
-                        }
-                    }
-                },
-                datepicker:{
-                    validators: {
-                        date: {
-                            format: 'DD/MM/YYYY',
-                            message: 'Ingrese en formato dd/mm/aaaa'
-                        }
-                    }
-                }
-            }
-        });});
-</script>
 </body>
 
 

@@ -2,10 +2,11 @@
 
 <body class="fancy">
     <section id="container">
-        @include('partials.headerUsers')
+        @include('partials.header')
         <section id="container">
             <section class="wrapper site-min-height top">
                 <div class="container-fluid text-center top trans">
+
                     <h1>Órdenes entrantes</h1>
 
                     <div class="checkbox" align="right">
@@ -77,24 +78,17 @@
                                             <h4 class="modal-title" id="myModalLabel">Resumen de la Orden</h4>
                                         </div>
                                         <div class="modal-body strong-black">
-
                                             @if ($ord->tipo == 'Constancia')
                                                 Se solicita una constancia de inexistencia de: {{$acto}}<br>
                                             @else
-                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta: {{$ord->certificacion[0]['idActa']}}
+                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta: {{$ord->certificacion[0]->idActa}}
                                             @endif
                                             <hr class ="dashed">
                                             Folio: {{$ord->folio}}<br>
                                             Tipo de trámite: {{$ord->tipo}}<br>
                                             Estado: {{$ord->status}}<br>
                                             Número de trámites: {{$ord->numTramites}}<br>
-                                            @if ($ord->resueltoPor != 1)
-                                                Resuelto por: {{$ord->user->name}} {{$ord->user->lastname}}<br>
-                                                Fecha de resolución: {{$ord->updated_at}}<br>
-                                            @else
-                                                No ha sido resuleto<br>
-                                                Fecha de petición: {{$ord->created_at}}<br>
-                                            @endif
+                                            Resulto por: {{$ord->user->name}} {{$ord->user->lastname}}
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
@@ -104,13 +98,13 @@
                             </div>
                         @endforeach
                     @endif
-                    @if (isset($orders))
-                        {!! $orders->setPath('')->appends(Input::query())->render()!!}
-                    @endif
 
 
-                   
+
                 </div>
+                @if (isset($orders))
+                    {!! $orders->setPath('')->appends(Input::query())->render()!!}
+                @endif
             </section>
         </section>
     </section>

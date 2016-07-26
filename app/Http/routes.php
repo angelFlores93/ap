@@ -11,7 +11,7 @@
 |
 */
 Route::get('/certificaciones/orden/pdf', function(){
-    return PDF::loadFile()->stream('download.pdf');
+    return PDF::loadHTML('<h1>Test</h1>')->stream('download.pdf');
 });
 
 Route::get('/', [

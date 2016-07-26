@@ -120,11 +120,12 @@ class certificacionesController extends Controller
     }
     public function seek(Request $request){
         $validator = Validator::make($request->all(),[
-            'acto'=>'exists:actos,id'
-
+            'acto'=>'exists:actos,id',
+            'name'=>'required',
+            'flastname'=>'required'
         ]);
         if ($validator->fails()){
-            dd('failed');
+
         }
         else{
             switch ($request->acto){
@@ -224,18 +225,11 @@ class certificacionesController extends Controller
                 'order_id' => $request->order_id,
                 'count' => $request->count
             ]);
-
         }
-
-
     }
     public function add(Request $request)
     {
         $added = count((certificaciones::where('idActa', $request->cert)->where('folioOrden',$request->order_id)->get()));
-        //modificar la orden
-
-        //agregar la certificación
-
         if ($added == 0){
             $certificacion = new certificaciones();
             $last_id_cert = certificaciones::orderBy('created_at', 'desc')->first()->id;
@@ -265,23 +259,7 @@ class certificacionesController extends Controller
             'count' => count($all_cert)
         ]);
     }
-    /*public function sortByDate($sorting_col, $results){
-        $col  = $sorting_col;
-        $sort = array();
-        foreach ($results as $i => $obj) {
-            $sort[$i] = $obj->{$col};
-        }
-        $i = count($results);
 
-        usort($sort, function ($a, $b) {
-            //if ($a[1] == $b[1]) return 0;
-            return (strtotime($a[1]) > strtotime($b[1])) ? -1 : 1;});
-
-        dd($sort);
-        array_multisort($results, SORT_DESC,$sort );
-
-        return $sort;
-    }*/
     public function getShopping($order_id){
         $all_cert = certificaciones::where('folioOrden',$order_id)->get();
         return view('common/shopping')->with([
@@ -316,16 +294,16 @@ class certificacionesController extends Controller
         return $new_query;
     }
     public function adaptRequest(Request $request){
-        if (!isset($request->name)){
+        if (!isset($request->name) || $request->name==""){
             $request->name = "null";
         }
-        if (!isset($request->flastname)){
+        if (!isset($request->flastname) || $request->flastname==""){
             $request->flastname = "null";
         }
-        if (!isset($request->mlastname)){
+        if (!isset($request->mlastname) || $request->mlastname==""){
             $request->mlastname = "null";
         }
-        if ($request->datepicker == ""){
+        if (!isset($request->datepicker) || $request->datepicker == ""){
             $request->datepicker = "null";
         }
         return $request;

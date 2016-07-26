@@ -26,8 +26,7 @@ class certificacionRequest extends Request
         return [
             'acto'=>'required|exists:actos,id',
             'name'=>'required',
-            'flastname'=>'required',
-            'mlastname'=>'required'
+            'flastname'=>'required'
         ];
     }
 }
