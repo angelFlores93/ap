@@ -56,3 +56,6 @@ Route::post('/auth_RC_ap/resolve','usersController@resolve',array('before' => 'c
 Route::post('/auth_RC_ap/toggle','usersController@toggle',array('before' => 'csrf', function() {
 
 }));
+Route::post('/constancia','constanciasController@add',array('before' => 'csrf', function() {
+
+}));
