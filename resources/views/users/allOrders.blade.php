@@ -42,7 +42,7 @@
                             <th>Número de trámites</th>
                             <th>Consultar</th>
                             <th>Resolver</th>
-
+                            <th>No procede</th>
                         </thead>
                         <tbody>
 
@@ -59,10 +59,24 @@
                                         <td style="width: 5px;"><a href="#"><button class="btn btn-xs green tooltips" data-placement="top" data-original-title="Resolver"><i class="fa fa-check"></i></button></a></td>
                                         <input type="hidden" name="user" value={{$user}}>
                                         <input type="hidden" name="idOrder" value={{$order->id}}>
+                                        <input type="hidden" name="flag" value={{$flag}}>
                                     @else
                                         <td style="width: 5px;"><a href="#"><button class="btn btn-xs blue tooltips" data-placement="top" data-original-title="Resuelto" disabled><i class="fa fa-thumbs-up"></i></button></a></td>
                                     @endif
                                     {!! Form::close() !!}
+
+                                    {!! Form::open(['action'=>['usersController@invalid'],'role'=>'form'] )  !!}
+                                    @if ($order->tipo == 'Constancia' && $order->status != 'No procede' && $order->status != 'Pagado')
+                                        <td style="width: 5px;"><a href="#"><button class="btn btn-xs orange tooltips" data-placement="top" data-original-title="No Procede"><i class="fa fa-times-circle"></i></button></a></td>
+                                        <input type="hidden" name="user" value={{$user}}>
+                                        <input type="hidden" name="idOrder" value={{$order->id}}>
+                                        <input type="hidden" name="flag" value={{$flag}}>
+                                    @elseif ($order->tipo == 'Constancia' && ($order->status == 'No procede' || $order->status == 'Pagado'))
+                                        <td style="width: 5px;"><a href="#"><button class="btn btn-xs orange tooltips" data-placement="top" data-original-title="No Procede" disabled><i class="fa fa-times-circle"></i></button></a></td>
+                                    @endif
+                                    {!! Form::close() !!}
+
+
                                 </tr>
                             @endforeach
                         @endif
@@ -81,14 +95,22 @@
                                             @if ($ord->tipo == 'Constancia')
                                                 Se solicita una constancia de inexistencia de: {{$acto}}<br>
                                             @else
-                                                Se solicita una copia certificada de: {{$acto}} <br>con id de acta:
+                                                Se solicitan:<br>
+                                                @foreach($ord->certificacion as $cert)
+                                                    Certificacion de {{\App\actos::find($cert->acto)->description}} con id de acta: {{$cert->idActa}}
+                                                    <br>
+                                                @endforeach
                                             @endif
                                             <hr class ="dashed">
                                             Folio: {{$ord->folio}}<br>
                                             Tipo de trámite: {{$ord->tipo}}<br>
                                             Estado: {{$ord->status}}<br>
                                             Número de trámites: {{$ord->numTramites}}<br>
-                                            Resulto por: {{$ord->user->name}} {{$ord->user->lastname}}
+                                            @if($ord->resueltoPor == 1)
+                                                No ha sido resuelto
+                                            @else
+                                                Resuelto por: {{$ord->user->name}} {{$ord->user->lastname}}
+                                            @endif
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

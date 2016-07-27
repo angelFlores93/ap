@@ -29,6 +29,7 @@ class usersController extends Controller
     public function listOrders($id){
         $orders = ordenPago::where('status','No Pagado')->paginate(10);
         $acto = actos::find((ordenPago::find(2)->constancia[0]->acto))->description;
+
         return view('users/allOrders')->with([
             'orders' => $orders,
             'user' => $id,
@@ -43,12 +44,15 @@ class usersController extends Controller
         $order->status = 'Pagado';
         $order->resueltoPor = $request->user;
         $order->save();
-        $orders = ordenPago::where('status','No Pagado')->paginate(10);
+        if($request->flag == 0)
+            $orders = ordenPago::where('status','No Pagado')->paginate(10);
+        else
+            $orders = ordenPago::orderBy('id')->paginate(10);
         Session::flash('message', 'Se ha resuelto la orden correctamente');
         return view('users/allOrders')->with([
             'orders' => $orders,
             'user' => $request->user,
-            'flag' => 0,
+            'flag' => $request->flag,
             'acto' => $acto
         ]);
     }
@@ -68,69 +72,22 @@ class usersController extends Controller
             'acto' => $acto
         ]);
     }
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+    public function invalid(Request $request){
+        $order = ordenPago::find($request->idOrder);
+        $order->status = 'No procede';
+        $order->resueltoPor = $request->user;
+        $order->save();
+        Session::flash('message', 'Se ha guardado la orden correctamente');
+        if($request->flag == 0)
+            $orders = ordenPago::where('status','No Pagado')->paginate(10);
+        else
+            $orders = ordenPago::orderBy('id')->paginate(10);
+        $acto = actos::find((ordenPago::find(2)->constancia[0]->acto))->description;
+        return view('users/allOrders')->with([
+            'orders' => $orders,
+            'user' => $request->user,
+            'flag' => $request->flag,
+            'acto' => $acto
+        ]);
     }
 }

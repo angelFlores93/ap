@@ -10,9 +10,6 @@
 | and give it the controller to call when that URI is requested.
 |
 */
-Route::get('/certificaciones/orden/pdf', function(){
-    return PDF::loadHTML('<h1>Test</h1>')->stream('download.pdf');
-});
 
 Route::get('/', [
     'uses' => 'indexController@index',
@@ -51,6 +48,9 @@ Route::get('/auth_RC_ap/{user}',[
     'as' => '/auth/list'
 ]);
 Route::post('/auth_RC_ap/resolve','usersController@resolve',array('before' => 'csrf', function() {
+
+}));
+Route::post('/auth_RC_ap/invalid','usersController@invalid',array('before' => 'csrf', function() {
 
 }));
 Route::post('/auth_RC_ap/toggle','usersController@toggle',array('before' => 'csrf', function() {

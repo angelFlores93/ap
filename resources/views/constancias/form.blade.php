@@ -13,11 +13,11 @@
                         '<span>Selecciona una razón:</span><br>'+
                     '<select class="form-control" id="rs" name="rs">'+
                         '<option value="">Razón...</option>'+
-                        '<option value="1">Realizar registro ordinario de nacimiento de menor</option>'+
-                        '<option value="2">Realizar regustro extemporáneo de menor</option>'+
-                        '<option value="3">Realizar regustro extemporáneo de mayor</option>'+
-                        '<option value="4">Requerimiento de autoridad judicial</option>'+
-                        '<option value="5">Otro</option>'+
+                        '<option value="Realizar registro ordinario de nacimiento de menor">Realizar registro ordinario de nacimiento de menor</option>'+
+                        '<option value="Realizar registro extemporáneo de menor">Realizar regustro extemporáneo de menor</option>'+
+                        '<option value="Realizar registro extemporáneo de mayor">Realizar regustro extemporáneo de mayor</option>'+
+                        '<option value="Requerimiento de autoridad judicial">Requerimiento de autoridad judicial</option>'+
+                        '<option value="Otro:_____________">Otro</option>'+
                     '</select>'+
                     '</div>'+
                     '</div>');
@@ -28,11 +28,11 @@
                         '<span>Selecciona una razón:</span><br>'+
                         '<select class="form-control" id="rs" name="rs">'+
                         '<option value="">Razón...</option>'+
-                        '<option value="1">Contraer matrimonio</option>'+
-                        '<option value="2">Acreditar concubinato</option>'+
-                        '<option value="3">Realizar trámites para obtener pensión</option>'+
-                        '<option value="4">Requerimiento de autoridad judicial</option>'+
-                        '<option value="5">Otro</option>'+
+                        '<option value="Contraer matrimonio">Contraer matrimonio</option>'+
+                        '<option value="Acreditar concubinato">Acreditar concubinato</option>'+
+                        '<option value="Realizar trámites para obtener pensión">Realizar trámites para obtener pensión</option>'+
+                        '<option value="Requerimiento de autoridad judicial">Requerimiento de autoridad judicial</option>'+
+                        '<option value="Otro:_____________">Otro</option>'+
                         '</select>'+
                         '</div>'+
                         '</div>');
@@ -88,7 +88,7 @@
     <div class="container-fluid text-center top ">
         @include('messages.messages')
         <div class="row">
-            {!! Form::open(['action'=>['constanciasController@add'],'role'=>'form', 'id'=>'form'] )  !!}
+            {!! Form::open(['action'=>['constanciasController@add'],'role'=>'form', 'id'=>'form', 'target'=>'_blank'] )  !!}
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-12" >
@@ -120,7 +120,7 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-12">
-                        <a href="#"><button class="btn blue tooltips" type="submit" data-placement="top" data-original-title="Generar órden">Generar órden</button></a>
+                        <a href="#" ><button class="btn blue tooltips" data-dismiss="modal" type="submit" data-placement="top" data-original-title="Generar órden">Generar órden</button></a>
                     </div>
                 </div>
             </div>

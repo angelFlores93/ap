@@ -31,6 +31,7 @@ class certificacionesController extends Controller
     {
         $actos = actos::all();
         $order = new ordenPago();
+        $order->status = 'No Pagado';
         $order->save();
         $order_id = ordenPago::orderBy('created_at', 'desc')->first()->id;
         return view('certificaciones/buscar')->with([

@@ -16,6 +16,8 @@ class CreateConstanciasTable extends Migration
             $table->increments('id');
             $table->string('folio');
             $table->string('folioOrden');
+            $table->string('nombre');
+            $table->string('razon');
             $table->integer('acto');
             $table->timestamps();
         });

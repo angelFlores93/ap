@@ -15,8 +15,8 @@ class CreateOrdenPagosTable extends Migration
         Schema::create('ordenPagos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('folio');
-            $table->enum('tipo',['Certificación', 'Constancia', 'Ambos']);
-            $table->enum('status', ['Pagado', 'No Pagado']);
+            $table->enum('tipo',['Certificación', 'Constancia']);
+            $table->enum('status', ['Pagado', 'No Pagado', 'No procede']);
             $table->integer('numTramites');
             $table->integer('resueltoPor');
             $table->timestamps();
