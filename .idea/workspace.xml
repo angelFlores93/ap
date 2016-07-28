@@ -52,21 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="preview.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/certificaciones/preview.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="332">
-              <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="shopping.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="shopping.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/common/shopping.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
+            <state relative-caret-position="266">
+              <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
               <folding />
             </state>
           </provider>
@@ -188,11 +178,11 @@
         <option value="$PROJECT_DIR$/resources/views/pdf/ordenpdf.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/routes.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/certificacionesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/common/shopping.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/constanciasController.php" />
         <option value="$PROJECT_DIR$/resources/views/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/constancias/form.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/certificaciones/preview.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/common/shopping.blade.php" />
       </list>
     </option>
   </component>
@@ -598,12 +588,12 @@
       <option name="presentableId" value="Default" />
       <updated>1465482233935</updated>
       <workItem from="1465482241987" duration="852000" />
-      <workItem from="1465565336198" duration="189422000" />
+      <workItem from="1465565336198" duration="190068000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="190274000" />
+    <option name="totallyTimeSpent" value="190920000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-8" width="1382" height="754" extended-state="6" />
@@ -1005,7 +995,7 @@
         <state relative-caret-position="323">
           <caret line="69" column="220" selection-start-line="69" selection-start-column="64" selection-end-line="69" selection-end-column="220" />
           <folding>
-            <marker date="1469712677080" expanded="true" signature="7840:7927" ph="{...}" />
+            <marker date="1469719911111" expanded="true" signature="7840:7927" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1044,14 +1034,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/common/shopping.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="20" column="93" selection-start-line="20" selection-start-column="93" selection-end-line="20" selection-end-column="93" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/constanciasController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -1070,6 +1052,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/certificaciones/preview.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="366">
+          <caret line="47" column="85" selection-start-line="47" selection-start-column="85" selection-end-line="47" selection-end-column="85" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/constancias/form.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="261">
@@ -1078,10 +1068,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/certificaciones/preview.blade.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/common/shopping.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="332">
-          <caret line="50" column="47" selection-start-line="50" selection-start-column="47" selection-end-line="50" selection-end-column="47" />
+        <state relative-caret-position="266">
+          <caret line="47" column="88" selection-start-line="47" selection-start-column="88" selection-end-line="47" selection-end-column="88" />
           <folding />
         </state>
       </provider>

@@ -46,8 +46,6 @@
                             <input type="hidden" name="cert" value={{$result->ID_ACTA}}>
                             <input type="hidden" name="acto" value={{$tipo}}>
                             <input type="hidden" name="order_id" value={{$order_id}}>
-
-
                             <button class="btn pink tooltips" data-placement="top" data-original-title="Añadir">Añadir al carrito</button>
                         {!! Form::close() !!}
                         <!--/div-->

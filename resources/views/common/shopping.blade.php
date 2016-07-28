@@ -45,7 +45,7 @@
                             <tbody>
                                 @foreach($array as $cert)
                                     <tr>
-                                        <td>Copia certificada</td>
+                                        <td>Copia certificada de {{$cert->actos->description}}</td>
                                         <td>$91.00</td>
                                     </tr>
                                 @endforeach
