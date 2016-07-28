@@ -137,7 +137,7 @@
 
                         <div class="form-group" style ="color: black">
                             <div class="col-md-2">
-                                <span id="datepickerLbl" style="color:white">Fecha:</span><br>
+                                <span id="datepickerLbl" style="color:black">Fecha:</span><br>
                                 <div class="input-group date" >
                                      <span class="input-group-addon">
                                         <span class="glyphicon glyphicon-calendar"></span>

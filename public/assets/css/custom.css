@@ -2,7 +2,7 @@
     padding-top: 30px;
 }
 .trans{
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(255,255,255,0.7);
 }
 .container-fluid{
     padding-bottom: 60px;
@@ -13,11 +13,12 @@
 }
 .fancy{
     background-color:white;
-    background-size: 100%;
-    color:white;
+
+    color:black;
 }
 .pink{
     background-color: #D10066;
+    color: white;
 }
 .pink:hover{
     background-color: #ff007b;

@@ -31,9 +31,16 @@ class certificacionesController extends Controller
     public function index()
     {
         $actos = actos::all();
-        $order = new ordenPago();
-        $order->status = 'No Pagado';
-        $order->save();
+        $last_id = ordenPago::orderBy('created_at', 'desc')->first()->id;
+        $last_order = ordenPago::find($last_id);
+        if (!isset($last_order->folio)|| $last_order->folio == "" ){
+            $order = $last_order;
+        }else{
+            $order = new ordenPago();
+            $order->status = 'No Pagado';
+            $order->save();
+        }
+
         $order_id = ordenPago::orderBy('created_at', 'desc')->first()->id;
         return view('certificaciones/buscar')->with([
             'actos' => $actos,
