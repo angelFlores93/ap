@@ -15,6 +15,7 @@ use App\actos;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
 use SimpleXMLElement;
@@ -256,7 +257,7 @@ class certificacionesController extends Controller
         return view('common/shopping')->with([
             'order_id' => $request->order_id,
             'array' => $all_cert,
-            'total' => (count($all_cert)*130),
+            'total' => '$'.(count($all_cert)*91).'.00',
             'count' => count($all_cert)
         ]);
     }
@@ -266,9 +267,22 @@ class certificacionesController extends Controller
         return view('common/shopping')->with([
             'order_id' => $order_id,
             'array' => $all_cert,
-            'total' => (count($all_cert)*130),
+            'total' => '$'.(count($all_cert)*91).'.00',
             'count' => count($all_cert)
         ]);
+    }
+    public function closeOrder(Request $request){
+        redirect()->route('/inicio');
+        setlocale(LC_ALL,"es_ES@euro","es_ES","esp");
+        $date = strftime("%d de %B del %Y");
+        $order = ordenPago::find($request->idOrder);
+        $cert = certificaciones::where('folioOrden', $order->id)->get();
+        $total = '$'.(count($cert)*91).'.00';
+
+        $view =  \View::make('pdf.ordenpdf', compact('order', 'date', 'cert', 'total'))->render();
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('invoice.pdf');
     }
     public function adaptQuery($find, $query, $array){
         if (isset($array['name'])) {

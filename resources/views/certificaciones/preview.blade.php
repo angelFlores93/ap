@@ -48,7 +48,7 @@
                             <input type="hidden" name="order_id" value={{$order_id}}>
 
 
-                            <button class="btn btn-xs pink tooltips" data-placement="top" data-original-title="Añadir">Añadir al carrito</button>
+                            <button class="btn pink tooltips" data-placement="top" data-original-title="Añadir">Añadir al carrito</button>
                         {!! Form::close() !!}
                         <!--/div-->
                     </div>

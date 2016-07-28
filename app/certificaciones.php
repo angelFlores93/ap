@@ -15,7 +15,7 @@ class certificaciones extends Model
      */
     protected $fillable = ['folio','folioOrden', 'idActa','status', 'acto'];
 
-    public function acto(){
+    public function actos(){
         return $this->belongsTo('App\actos', 'acto');
     }
     public function orden(){

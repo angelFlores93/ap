@@ -120,7 +120,7 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-md-12">
-                        <a href="#" ><button class="btn blue tooltips" data-dismiss="modal" type="submit" data-placement="top" data-original-title="Generar órden">Generar órden</button></a>
+                        <a href="#" ><button class="btn blue tooltips" type="submit" data-placement="top" data-original-title="Generar órden">Generar órden</button></a>
                     </div>
                 </div>
             </div>

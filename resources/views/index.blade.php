@@ -1,5 +1,4 @@
 @include('partials.scripts')
-
 <body class="fancy">
     <section id="container">
         @include('partials.header')

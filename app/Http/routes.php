@@ -16,6 +16,7 @@ Route::get('/', [
     'as' => '/inicio']
 );
 
+
 Route::get('/certificaciones', [
     'uses' => 'certificacionesController@index',
     'as' => '/certificaciones']
@@ -57,5 +58,8 @@ Route::post('/auth_RC_ap/toggle','usersController@toggle',array('before' => 'csr
 
 }));
 Route::post('/constancia','constanciasController@add',array('before' => 'csrf', function() {
+
+}));
+Route::post('/shopping/order','certificacionesController@closeOrder',array('before' => 'csrf', function() {
 
 }));

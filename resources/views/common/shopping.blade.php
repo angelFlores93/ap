@@ -9,18 +9,26 @@
                     <h1>Resumen de órdenes solicitadas</h1>
                     @include('messages.messages')
                     <div class="row">
-                        <div class="col-md-3" >
+                        <div class="col-md-2" >
                             <h4>Folio de orden: OP{{$order_id}}</h4>
                         </div>
-                        <div class="col-md-3" >
+                        <div class="col-md-2" >
                             <h4> Total: {{$total}}</h4>
                         </div>
-                        <div class="col-md-3" >
+
+                        <div class="col-md-2" >
                             <!-- FORM REQUEST TO CLOSE -->
-                            <a class="btn blue" href ="#">Imprimir órden de pago</a>
+                            {!! Form::open(['action'=>['certificacionesController@closeOrder'],'role'=>'form', 'target'=>'_blank'] )  !!}
+                            <a href="#" ><button class="btn blue tooltips" data-placement="top" data-original-title="Imprimir">Imprimir órden de pago</button></a>
+                            <input type="hidden" name="idOrder" value={{$order_id}}>
+                            {!! Form::close() !!}
+                        </div>
+
+                        <div class="col-md-2" >
+                            <a class="btn blue" href ="{{route('/certificaciones/mas', [$order_id, count($array)])}}">Solicitar más certificaciones</a>
                         </div>
                         <div class="col-md-3" >
-                            <a class="btn blue" href ="{{route('/certificaciones/mas', [$order_id, count($array)])}}">Solicitar más certificaciones</a>
+                            <a class="btn blue" href ="{{route('/inicio')}}">Regresar al inicio</a>
                         </div>
                     </div>
 
@@ -38,7 +46,7 @@
                                 @foreach($array as $cert)
                                     <tr>
                                         <td>Copia certificada</td>
-                                        <td>$130</td>
+                                        <td>$91.00</td>
                                     </tr>
                                 @endforeach
                             </tbody>

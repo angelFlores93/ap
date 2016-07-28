@@ -97,7 +97,7 @@
                                             @else
                                                 Se solicitan:<br>
                                                 @foreach($ord->certificacion as $cert)
-                                                    Certificacion de {{\App\actos::find($cert->acto)->description}} con id de acta: {{$cert->idActa}}
+                                                    Certificacion de {{$cert->actos->description}} con id de acta: {{$cert->idActa}}
                                                     <br>
                                                 @endforeach
                                             @endif

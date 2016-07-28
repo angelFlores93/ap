@@ -5,6 +5,10 @@
         <section id="container">
             <section class="wrapper site-min-height top">
                 <div class="container-fluid text-center top">
+                    <div align="right">
+                        <br>
+                        <strong>ASUNTO: CONSTANCIA DE NO REGISTRO DE {{strtoupper($acto)}}</strong>
+                    </div>
                     <strong>M. EN D. LORENA MONTES HERNÁNDEZ</strong><br>
                     <strong>DIRECTORA ESTATAL DEL REGISTRO CIVIL</strong><br>
                     <strong>DEL ESTADO DE QUERÉTARO</strong><br>
