@@ -11,18 +11,18 @@
                 <h4 style="color: white; padding-top: 5px" >Servicio de solicitud de trámites del Registro Civil</h4>
             </div>
             <div class ="col-md-4" align ="right">
-                <div class="row">
+
 
                 @if(isset ($order_id))
-                    <div class="col-md-6" align ="left"><a href="{{route('/carrito', $order_id)}}" class="cart">
+                    <a href="{{route('/carrito', $order_id)}}" class="cart">
                                 @if (!isset($count))
                                 <i style="padding-top: 5px; padding-right: 13px" class="fa fa-shopping-cart fa-3x" aria-hidden="true"><span  class="badge orange">0</span></i>
                                 @else
                                 <i style="padding-top: 5px; padding-right: 13px" class="fa fa-shopping-cart fa-3x" aria-hidden="true"><span  class="badge green">{{$count}}</span></i>
                                 @endif
-                            <br>Trámites</a></div>
+                            <br>Trámites</a>
                 @endif
-                </div>
+
             </div>
 
         </div>
