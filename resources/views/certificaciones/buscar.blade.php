@@ -62,6 +62,7 @@
             }
 
         });
+
         $('#form').bootstrapValidator({
 
             fields: {
@@ -86,13 +87,13 @@
                         }
                     }
                 }
-
             }
         });
 
     });
-</script>
 
+</script>
+    <div id="loadingScreen" class="se-pre-con hidden"></div>
     <section id="container">
         @include('partials.header')
         <section id="container">

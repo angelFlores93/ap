@@ -12,6 +12,8 @@ class usersSeeder extends Seeder
     public function run()
     {
         user::create(['name'=>'null', 'lastname'=>"null"]);
-        user::create(['name'=>'Angel Alberto', 'lastname'=>"Flores Rodríguez"]);
+        user::create(['name'=>'Amalia', 'lastname'=>"Saldivar Ramírez"]);
+        user::create(['name'=>'Martha', 'lastname'=>"Olascoaga Soria"]);
+        user::create(['name'=>'Alma Norma', 'lastname'=>"Mendoza Guerrero"]);
     }
 }

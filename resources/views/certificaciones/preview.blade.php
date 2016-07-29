@@ -1,6 +1,13 @@
 @include('partials.scripts')
 
 <body class="fancy">
+<script>
+    $(window).load(function() {
+        // Animate loader off screen
+        $(".se-pre-con").fadeOut("slow");;
+    });
+</script>
+<div class="se-pre-con"></div>
     <section id="container">
         @include('partials.header')
         <section id="container">
