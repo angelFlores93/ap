@@ -48,9 +48,10 @@ class constanciasController extends Controller
         }else{
             $acto = 'matrimonio';
         }
+        $folio = $order->folio;
         $nombre = $request->name;
         $razon = $request->rs;
-        $view =  \View::make('pdf.constanciaspdf', compact('acto', 'date', 'nombre', 'razon'))->render();
+        $view =  \View::make('pdf.constanciaspdf', compact('acto', 'date', 'nombre', 'razon', 'folio'))->render();
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
         return $pdf->stream('invoice');

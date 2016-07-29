@@ -7,7 +7,7 @@
                 <div class="container-fluid text-center top">
                     <p><strong>Folio: {{$order->folio}}</strong></p>
                     <div align="center"><h1><strong>DIRECCIÓN ESTATAL DEL REGISTRO CIVIL</strong></h1></div>
-                    <div align="center"><h1><strong>COMPROBANTE DE PAGO</strong></h1></div>
+                    <div align="center"><h1><strong>ORDEN DE PAGO</strong></h1></div>
                     <table width="100%">
                         <tr>
                             <td><strong>Fecha:</strong></td>
@@ -19,11 +19,11 @@
                         </tr>
                         <tr>
                             <td><strong>Fundamento Jurídico:</strong></td>
-                            <td>Art. 142 de la Let de Hacienda del Estado de Querétaro, vigente. <br>Factor de valor de calculo equivalente a $72.5</td>
+                            <td>Art. 142 de la Ley de Hacienda del Estado de Querétaro, vigente. <br>Factor de valor de calculo equivalente a $72.5</td>
                         </tr>
                     </table>
 
-                    <h1>Resumen de la compra</h1>
+                    <h1>Resumen de la Orden</h1>
                     <table width="100%">
                         <tr>
                             <td><strong>Documento</strong></td>
