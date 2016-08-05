@@ -17,11 +17,15 @@
                         </div>
 
                         <div class="col-md-2" >
-                            <!-- FORM REQUEST TO CLOSE -->
+                            @if(count($array) == 0)
+                                <a href="#" ><button class="btn blue tooltips" data-placement="top" data-original-title="Imprimir" disabled>Imprimir órden de pago</button></a>
+                            @else
+                                <!-- FORM REQUEST TO CLOSE -->
                             {!! Form::open(['action'=>['certificacionesController@closeOrder'],'role'=>'form', 'target'=>'_blank'] )  !!}
                             <a href="#" ><button class="btn blue tooltips" data-placement="top" data-original-title="Imprimir">Imprimir órden de pago</button></a>
                             <input type="hidden" name="idOrder" value={{$order_id}}>
                             {!! Form::close() !!}
+                            @endif
                         </div>
 
                         <div class="col-md-2" >

@@ -15,10 +15,12 @@
 
                         @if (isset($users))
                             @foreach($users as $user)
+                                @if($user->id != 1)
                                 <tr>
                                     <td>{{$user->name.' '. $user->lastname}}</td>
                                     <td style="width: 5px;"><a href="{{route('/auth/list', $user->id)}}"><button class="btn btn-xs pink tooltips" data-placement="top" data-original-title="Seleccionar"><i class="fa fa-check"></i></button></a></td>
                                 </tr>
+                                @endif
                             @endforeach
                         @endif
                         </tbody>

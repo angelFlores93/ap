@@ -51,8 +51,18 @@
 
                                     <tr>
                                         <td>{{$order->folio}}</td>
-                                        <td>{{$order->tipo}}</td>
-                                        <td>{{$order->status}}</td>
+                                        @if($order->tipo == 'Constancia')
+                                            <td><strong style="color:#0159BB">{{$order->tipo}}</strong></td>
+                                        @else
+                                            <td><strong style="color:#923387">{{$order->tipo}}</strong></td>
+                                        @endif
+                                        @if($order->status == 'No Pagado')
+                                            <td><strong style="color: darkred">{{$order->status}}</strong></td>
+                                        @elseif($order->status == 'Pagado')
+                                            <td><strong style="color: #2FC635">{{$order->status}}</strong></td>
+                                        @else
+                                            <td><strong style="color: #FE5013">{{$order->status}}</strong></td>
+                                        @endif
                                         <td>{{$order->numTramites}}</td>
                                         <td><a data-toggle="modal" data-target="#{{$order->folio}}"><button class="btn btn-xs purple" ><i class="fa fa-info"></i> </button></a></td>
                                         {!! Form::open(['action'=>['usersController@resolve'],'role'=>'form'] )  !!}
@@ -88,7 +98,7 @@
                                 <div class="modal fade" id="{{$ord->folio}}" tabindex="-1" role="dialog">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">
-                                            <div class="modal-header">
+                                            <div class="modal-header" style="background-color: #0159BB">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                                 <h4 class="modal-title" id="myModalLabel">Resumen de la Orden</h4>
                                             </div>

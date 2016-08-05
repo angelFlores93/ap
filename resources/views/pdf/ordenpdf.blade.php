@@ -4,7 +4,7 @@
         @include('partials.headerPdf')
         <section id="container">
             <section class="wrapper site-min-height top">
-                <div class="container-fluid text-center top">
+                <div class="container-fluid text-center top"><br>
                     <p><strong>Folio: {{$order->folio}}</strong></p>
                     <div align="center"><h1><strong>DIRECCIÓN ESTATAL DEL REGISTRO CIVIL</strong></h1></div>
                     <div align="center"><h1><strong>ORDEN DE PAGO</strong></h1></div>
