@@ -53,7 +53,7 @@
                             <input type="hidden" name="cert" value={{$result->ID_ACTA}}>
                             <input type="hidden" name="acto" value={{$tipo}}>
                             <input type="hidden" name="order_id" value={{$order_id}}>
-                            <button class="btn pink tooltips" data-placement="top" data-original-title="Añadir">Añadir al carrito</button>
+                            <button class="btn pink tooltips" data-placement="top" data-original-title="Añadir" onclick='return confirm("Al añadir el trámite aprueba que los datos en la pantalla son correctos. De no haber leído los datos, favor de regresar y revisarlos uno por uno y corroborar que sean correctos. ¿Seguro que sus datos son correctos y desea continuar?")'>Añadir al carrito</button>
                         {!! Form::close() !!}
                         <!--/div-->
                     </div>
