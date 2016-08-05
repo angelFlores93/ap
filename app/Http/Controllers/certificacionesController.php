@@ -234,7 +234,13 @@ class certificacionesController extends Controller
         $added = count((certificaciones::where('idActa', $request->cert)->where('folioOrden',$request->order_id)->get()));
         if ($added == 0){
             $certificacion = new certificaciones();
-            $last_id_cert = certificaciones::orderBy('created_at', 'desc')->first()->id;
+            $first = certificaciones::orderBy('created_at', 'desc')->first();
+            if (!isset($first) || $first == null){
+                $last_id_cert = 0;
+            }else{
+                $last_id_cert = $first->id;
+            }
+
             $certificacion->folio = 'RC_' . ($last_id_cert + 1) . '_' . $request->cert . '_' . $request->acto;
             $certificacion->folioOrden = $request->order_id;
             $certificacion->idActa = $request->cert;
