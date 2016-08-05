@@ -12,53 +12,59 @@
         $('#acto').change(function (event){
             var selected = $(this).val();
             if (selected == 1){
-                $('#nameLbl').html('Nombre(s) del registrado:');
+                $('#nameLbl').html('Nombre(s) del registrado: *');
                 $('#datepickerLbl').html("Fecha de nacimiento:");
                 $('#datepicker').removeAttr('disabled');
+                $('#datepicker').val('');
             }
             if (selected == 2){
-                $('#nameLbl').html('Nombre(s) del conyuge:');
+                $('#nameLbl').html('Nombre(s) del conyuge: *');
                 //$('#datepickerLbl').html("Fecha de nacimiento");
                 $('#datepicker').attr('disabled', 'true');
+                $('#datepicker').val('');
             }
             if (selected == 3){
-                $('#nameLbl').html('Nombre(s) del difunto:');
+                $('#nameLbl').html('Nombre(s) del difunto: *');
                 $('#datepickerLbl').html("Fecha de defunción:");
                 $('#datepicker').removeAttr('disabled');
+                $('#datepicker').val('');
             }
             if (selected == 4){
-                $('#nameLbl').html('Nombre(s) del adoptado:');
-                $('#datepickerLbl').html("Fecha de adopción:");
+                $('#nameLbl').html('Nombre(s) del adoptado: *');
+                $('#datepickerLbl').html("Fecha de nacimiento:");
                 $('#datepicker').removeAttr('disabled');
+                $('#datepicker').val('');
             }
             if (selected == 5){
-                $('#nameLbl').html('Nombre(s) del divorciado:');
-                $('#datepickerLbl').html("Fecha de divorcio:");
-                $('#datepicker').removeAttr('disabled');
+                $('#nameLbl').html('Nombre(s) del divorciado: *');
+                $('#datepicker').attr('disabled', 'true');
+                $('#datepicker').val('');
             }
             if (selected == 6){
-                $('#nameLbl').html('Nombre(s) del sentenciado:');
-
+                $('#nameLbl').html('Nombre(s) del sentenciado: *');
                 $('#datepicker').attr('disabled', 'true');
+                $('#datepicker').val('');
             }
             if (selected == 7){
-                $('#nameLbl').html('Nombre(s) del reconocido:');
-
-                $('#datepicker').attr('disabled', 'true');
+                $('#nameLbl').html('Nombre(s) del reconocido: *');
+                $('#datepickerLbl').html('Fecha de nacimiento:');
+                $('#datepicker').val('');
             }
             if (selected == 8){
-                $('#nameLbl').html('Nombre(s) del registrado:');
+                $('#nameLbl').html('Nombre(s) del registrado: *');
                 $('#datepicker').attr('disabled', 'true');
+                $('#datepicker').val('');
             }
             if (selected == 9){
-                $('#nameLbl').html('Nombre(s) del conyuge:');
-                $('#datepickerLbl').html("Fecha de inscripción:");
-                $('#datepicker').removeAttr('disabled');
+                $('#nameLbl').html('Nombre(s) del conyuge: *');
+                $('#datepicker').attr('disabled', 'true');
+                $('#datepicker').val('');
             }
             if (selected == 10){
-                $('#nameLbl').html('Nombre(s) del difunto:');
-                $('#datepickerLbl').html("Fecha de defunción:");
+                $('#nameLbl').html('Nombre(s) del difunto: *');
+                $('#datepickerLbl').html("Fecha de defunción: ");
                 $('#datepicker').removeAttr('disabled');
+                $('#datepicker').val('');
             }
 
         });
@@ -106,7 +112,7 @@
 
                         <div class="form-group">
                             <div class="col-md-2" >
-                                <span>Selecciona un acto:</span><br>
+                                <span>Selecciona un acto: *</span><br>
                                 <select class="form-control" id="acto" name="acto">
                                     <option value="">Acto</option>
                                     @if( isset($actos))
@@ -115,24 +121,28 @@
                                         @endforeach
                                     @endif
                                 </select>
+                                <p style="font-size:xx-small; color: red">(Campo obligatorio)</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-2">
-                                <span id="nameLbl">Nombre(s):</span><br>
+                                <span id="nameLbl">Nombre(s): *</span><br>
                                 {!!Form::text('name' ,null,['class'=>'form-control','id'=>'name','placeholder'=>'Nombre(s)'])!!}
+                                <p style="font-size:xx-small; color: red">(Campo obligatorio)</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-2">
-                                <span id="flastnameLbl">Apellido paterno:</span><br>
+                                <span id="flastnameLbl">Apellido paterno: *</span><br>
                                 {!!Form::text('flastname' ,null,['class'=>'form-control','id'=>'flastname','placeholder'=>'Apellido Paterno'])!!}
+                                <p style="font-size:xx-small; color: red">(Campo obligatorio)</p>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-2">
                                 <span id="mlastnameLbl">Apellido materno:</span><br>
                                 {!!Form::text('mlastname' ,null,['class'=>'form-control','id'=>'mlastname','placeholder'=>'Apellido Materno'])!!}
+
                             </div>
                         </div>
 

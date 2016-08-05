@@ -6,6 +6,7 @@
             <section class="wrapper site-min-height top">
                 <div class="container-fluid text-center top trans">
                     <h1>Selecciona un trámite a realizar</h1><br>
+                    <h4>El servicio es exclusivo para actas locales (Expedidas en el Estado)</h4>
                     <div class="row">
                         <div class="col-md-6"><a class ="btn btn-primary purple" href ="{{route('/certificaciones')}}" ><i class="fa fa-file-text-o fa-5x"></i><br><br>Copia certificada</a></div>
                         <div class="col-md-6"><a data-toggle="modal" data-target="#constancias" class ="btn btn-primary blue"><i class="fa fa-file-text-o fa-5x"></i><br><br>Constancia de Inexistencia</a></div>
