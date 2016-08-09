@@ -79,8 +79,8 @@ return [
             'driver'   => 'sqlsrv',
             'host'     => env('DB_HOST', '172.133.0.60'),
             'database' => env('DB_DATABASE', 'RC'),
-            'username' => env('DB_USERNAME', 'sa'),
-            'password' => env('DB_PASSWORD', 'Olicos90'),
+            'username' => env('DB_USERNAME', 'sa'), // USER1
+            'password' => env('DB_PASSWORD', 'Olicos90'), // DerInqro05
             'charset'  => 'utf8',
             'prefix'   => '',
         ],
