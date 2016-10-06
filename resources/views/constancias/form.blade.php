@@ -96,7 +96,7 @@
                         <select class="form-control" id="acto" name="acto">
                             <option value="">Acto...</option>
                             <option value="1">Nacimiento</option>
-                            <option value="2">Matrimonio</option>
+                            <!--option value="2">Matrimonio</option-->
                         </select>
                     </div>
                 </div>
